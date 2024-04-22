@@ -122,11 +122,10 @@ export default function HTMLAnnotator({
 	imageUploadRef
 }: HTMLAnnotatorProps) {
 	// code spaces and their fancy proxy as well as our hosted service use github pages
-	const iframeSrc =
-		import.meta.env.MODE === 'hosted' ||
-		document.location.hostname.endsWith('github.dev')
-			? 'https://wandb.github.io'
-			: 'http://127.0.0.1:7878'
+	const iframeSrc = import.meta.env.VITE_IFRAME_SRC || 'http://127.0.0.1:7878'
+
+	console.log("iframeSrc", iframeSrc)
+
 	const iframeRef = useRef<HTMLIFrameElement | null>(null)
 	const item = useAtomValue(historyAtomFamily({ id }))
 

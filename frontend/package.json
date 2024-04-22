@@ -4,7 +4,7 @@
 	"private": true,
 	"version": "0.0.1",
 	"scripts": {
-		"build": "vite build",
+		"build": "VITE_IFRAME_SRC=http://open-ui.my-domain.com vite build",
 		"postbuild": "rm -rf ../backend/openui/dist && cp -r dist ../backend/openui/dist",
 		"deploy": "npm run build -- --mode hosted && fly deploy ../backend",
 		"commit": "cz",
